@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <description>Generic Highlights panel</description>
+    <isExposed>true</isExposed>
+    <masterLabel>Generic Highlights panel</masterLabel>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage,lightning__AppPage,lightning__HomePage,lightningCommunity__Default">
+            <property name="heading" type="String" default="Assigned Learning!!" label="Title" />
+            <property name="category" datasource="apex://DE_ResourceCategoryPicklist" default="Home" label="Category" type="String"/>
+            <property name="showDesc" type="boolean" default="false" label="Show Description"/>
+            <property name="showDate" type="boolean" default="false" label="Show Dates" description="Select the checkbox if you would like to see the date field in the component"/>
+            <property name="dateLabel" type="string" default="Due Date:" label="Date Label" description="Enter the label for the date field(Applicable only if Show Dates is checked)"/>
+            <property name="imageSource" label="Image Source" type="String" datasource="RichText from Object, Image Link from Object, SLDS ICON" default="RichText from Object"/>
+            
+            <property name="iconName" type="string" default="action:preview" label="SLDS Icon Name" description="Considered only if image soruce is SLDS ICON.Enter the Icon name from SLDS stack Ex: standard:account"/>
+        </targetConfig>
+    </targetConfigs>
+    
+</LightningComponentBundle>

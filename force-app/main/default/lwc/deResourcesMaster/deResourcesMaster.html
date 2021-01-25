@@ -1,0 +1,147 @@
+<template>
+    <!--<lightning-card icon-name=custom:custom78 title="Learning Summary">
+
+        <div class="slds-p-left--medium slds-p-right--medium" data-aura-rendered-by="714:0">
+            <div class="slds-grid">
+                <div class="slds-col slds-align_absolute-center badgeLabels" >Completed</div>
+                    <div class="slds-col slds-align_absolute-center badgeLabels" >In Progress</div>
+                    <div class="slds-col slds-align_absolute-center badgeLabels" >Assigned</div>
+                </div>
+                <div class="slds-grid" data-aura-rendered-by="722:0">
+                    <div class="slds-col slds-align_absolute-center achievementScores" >3</div>
+                    <div class="slds-col slds-align_absolute-center achievementScores" >2</div>
+                    <div class="slds-col slds-align_absolute-center achievementScores" >4</div>
+                </div>
+            </div>
+        
+    </lightning-card>-->
+
+    <lightning-card icon-name=custom:custom78 title={heading}>
+        <div class='assignment'>
+
+    <template for:each={resources} for:item="object">
+        <!--<p key={object.key}>{object.Label__c}</p>-->
+        <!--<li key={object.key}>
+            <div style="display:flex;">
+                <div style="width: 2rem;height:2rem;">
+                    <template if:true={showIcons}>
+                        <lightning-icon icon-name={iconName} alternative-text="Preview" title="Preview"></lightning-icon>
+                    </template>
+                    <template if:true={showImg}>
+                        <lightning-formatted-rich-text value={object.Icon__c}></lightning-formatted-rich-text>
+                    </template>
+                </div>
+                <div>
+                    Work in Progress!!!!
+                </div>
+            </div>
+        </li>-->
+        <lightning-layout vertical-align='center' class='row slds-p-bottom_small' multiple-rows key={object.key}>
+            <lightning-layout-item padding='horizontal-small' flexibility='no-shrink' class="" >
+                <!--<img src='{object.Icon__c}' class='entry-icon' />-->
+                
+                    <template if:true={showIcons}>
+                        <lightning-icon icon-name={iconName} alternative-text="Preview" title="Preview"></lightning-icon>
+                    </template>
+                    <template if:true={showImgLink}>
+                        <img src={object.Image_URL__c} class='entry-icon' />
+                    </template>
+                    <template if:true={showImg}>
+                        <div class="entry-icon" style="align-items:center;">
+                        <lightning-formatted-rich-text value={object.Icon__c}></lightning-formatted-rich-text>
+                    </div>
+                    </template>
+                    
+                
+                
+            </lightning-layout-item>
+            <lightning-layout-item padding='' flexibility="grow" class="">
+                <div>
+                    <a href='{object.Link__c}' target='_blank'>{object.Label__c}</a>
+                    <template if:true={showDesc}><br/><span>{object.Description__c}</span></template>
+                    <template if:true={showDate}>
+                        <br/>{dateLabel} &nbsp;
+                        <span class={statusClass}>
+                            <lightning-formatted-date-time value={object.Date__c} style="color:red;"
+                                year='numeric' month='short' day='2-digit' weekday='long'
+                            ></lightning-formatted-date-time>
+                        </span>
+                    </template>
+                </div>
+            </lightning-layout-item>
+
+            
+        </lightning-layout>
+
+    </template>
+
+            
+
+        
+<!--
+        <lightning-layout vertical-align='center' class='row slds-p-bottom_small' multiple-rows>
+            <lightning-layout-item padding='horizontal-small' flexibility='no-shrink' class="slds-p-left_large">
+                <img src='https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70/learn/modules/intelligent-marketing-and-customer-service-for-banks/563514bd476239325fe9cd0e1c38094e_badge.png' class='entry-icon' />
+            </lightning-layout-item>
+            <lightning-layout-item padding='horizontal-small' flexibility="auto, grow" >
+                <div>
+                    <a href='https://trailhead.salesforce.com/en/content/learn/modules/intelligent-marketing-and-customer-service-for-banks' target='_blank'>Customer Service for Banks</a>
+                    
+                        <br />Due Date: &nbsp;
+                        <span class={statusClass}>
+                            <lightning-formatted-date-time value='{morDate}'
+                                year='numeric' month='short' day='2-digit' weekday='long'
+                            ></lightning-formatted-date-time>
+                        </span>
+                    
+                </div>
+            </lightning-layout-item>
+
+            
+        </lightning-layout>
+        <lightning-layout vertical-align='center' class='row slds-p-bottom_small' multiple-rows>
+            <lightning-layout-item padding='horizontal-small' flexibility='no-shrink' class="slds-p-left_large">
+                <img src='https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70/learn/modules/nonprofit-success-pack-basics/3b8cf28a0cf12c22816a33ef7ce18d3a_badge.png' class='entry-icon' />
+            </lightning-layout-item>
+            <lightning-layout-item padding='horizontal-small' flexibility="auto, grow" >
+                <div>
+                    <a href='https://trailhead.salesforce.com/content/learn/modules/nonprofit-success-pack-basics' target='_blank'>Nonprofit Success Pack (NPSP) Basics</a>
+                    
+                        <br />Due Date: &nbsp;
+                        <span class={statusClass}>
+                            <lightning-formatted-date-time value='{morDate}'
+                                year='numeric' month='short' day='2-digit' weekday='long'
+                            ></lightning-formatted-date-time>
+                        </span>
+                    
+                </div>
+            </lightning-layout-item>
+
+            
+        </lightning-layout>
+
+        <lightning-layout vertical-align='center' class='row slds-p-bottom_small' multiple-rows>
+            <lightning-layout-item padding='horizontal-small' flexibility='no-shrink' class="slds-p-left_large">
+                <img src='https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70/learn/modules/external-services/eb5d20079b7bf2fe5d3533ab7065a12d_badge.png' class='entry-icon' />
+            </lightning-layout-item>
+            <lightning-layout-item padding='horizontal-small' flexibility="auto, grow" >
+                <div>
+                    <a href='https://trailhead.salesforce.com/en/content/learn/modules/external-services' target='_blank'>External Services</a>
+                    
+                        <br />Due Date: &nbsp;
+                        <span class={statusClass}>
+                            <lightning-formatted-date-time value='{morDate}'
+                                year='numeric' month='short' day='2-digit' weekday='long'
+                            ></lightning-formatted-date-time>
+                        </span>
+                    
+                </div>
+            </lightning-layout-item>
+
+            
+        </lightning-layout>-->
+
+
+    </div>
+    </lightning-card>
+</template>
