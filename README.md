@@ -7,6 +7,10 @@
 * Similar Opportunities/Accounts
 * Recommendations and many more.
 
+![image](https://user-images.githubusercontent.com/67360339/105693230-7e295a00-5f25-11eb-87cb-1993a7062490.png)
+
+<img width="1665" alt="Generic Highlights Panel" src="https://user-images.githubusercontent.com/67360339/105693556-dfe9c400-5f25-11eb-8486-c36447fded52.png">
+
 # Setup
 *Step 1:*
 You can also install the component from below package:
@@ -39,7 +43,7 @@ d) Show Description - Select the option if you would like to see the description
 e) Date Label - Enter the date label you would like to have in the component
 f) Image Source - Select one from RichText from Object, Image Link from Object or SLDS ICON
 g) SLDS Icon Name - If you are selecting SLDS ICON as image source please mention the icon name in this attribute Ex: standard:account
-[Image: image.png]
+
 
 *Developer Notes:*
 LWC Component: DeResourcesMaster
